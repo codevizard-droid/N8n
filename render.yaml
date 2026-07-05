@@ -4,7 +4,7 @@ services:
     runtime: node
     name: n8n-service
     buildCommand: NODE_OPTIONS="--max-old-space-size=350" npm install --no-audit --no-fund
-    startCommand: node --max-old-space-size=350 ./node_modules/n8n/bin/n8n start
+    startCommand: node --max-old-space-size=350 --gc-global --max-semi-space-size=2 ./node_modules/n8n/bin/n8n start
     envVars:
       - key: NODE_VERSION
         value: 20.11.0
