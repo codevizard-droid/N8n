@@ -3,7 +3,7 @@ services:
     plan: free
     runtime: node
     name: n8n-service
-    buildCommand: npm install
+    buildCommand: NODE_OPTIONS="--max-old-space-size=400" npm install --no-audit --no-fund
     startCommand: npm start
     envVars:
       - key: PORT
@@ -14,3 +14,4 @@ services:
         generateValue: true
       - key: DB_TYPE
         value: postgresdb
+        
