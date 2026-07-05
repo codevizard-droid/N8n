@@ -1,10 +1,10 @@
 services:
   - type: web
     plan: free
-    runtime: node
+    runtime: image
     name: n8n-service
-    buildCommand: NODE_OPTIONS="--max-old-space-size=400" npm install --no-audit --no-fund
-    startCommand: npm start
+    image:
+      url: ghcr.io/n8n-io/n8n:latest-alpine
     envVars:
       - key: PORT
         value: 10000
@@ -14,4 +14,3 @@ services:
         generateValue: true
       - key: DB_TYPE
         value: postgresdb
-        
